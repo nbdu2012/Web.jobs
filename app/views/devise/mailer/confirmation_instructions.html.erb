@@ -1,0 +1,5 @@
+<p>欢迎 <%= @resource.email %>!</p>
+
+<p>请点击以下信息确认您的注册:</p>
+
+<p><%= link_to '确认注册', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>

@@ -1,0 +1,36 @@
+<h2 class="pagetitle">个人设置</h2>
+<div class="form">
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+	<%= f.label :email , t("user.email") %>
+    <%= f.text_field :email %>
+ </div>
+
+  <div class="field">
+	<%= f.label :password , t("user.password") %> 
+    <%= f.password_field :password %><i>(如果不想修改请留空)</i>
+  </div>
+
+  <div class="field">
+	<%= f.label :password_confirmation, t("user.password_confirmation") %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+
+  <div class="field">
+    <%= f.label :current_password, t("user.current_password") %>
+    <%= f.password_field :current_password %> <i>(需要当前密码进行修改确认)</i>
+  </div>
+
+  <div class="field">
+	<%= f.submit "保存", :class => "button" %>
+  </div>
+<% end %>
+
+<h3>中止帐号</h3>
+
+<p>要取消吗? <%= link_to "注销帐号", registration_path(resource_name), :confirm => "请确认?", :method => :delete %>.</p>
+
+</div>

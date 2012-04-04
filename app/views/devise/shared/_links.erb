@@ -1,0 +1,13 @@
+<p class="problem">
+<%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
+  <%= link_to "忘记密码?", new_password_path(resource_name), :class => "forgot" %>
+<% end -%>
+
+<%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+  <%= link_to "未收到确认信息?", new_confirmation_path(resource_name), :class => "receive" %>
+<% end -%>
+
+<%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
+  <%= link_to "未收到解锁信息?", new_unlock_path(resource_name) %>
+<% end -%>
+</p>

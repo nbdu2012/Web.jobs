@@ -1,0 +1,11 @@
+<div class="foot">
+  <p><a href="/about">常见问题</a> |<a href="mailto:nbdu2012@gmail.com">联系我们</a></p>
+<% if user_signed_in? %>
+  <%= link_to '登出', destroy_user_session_path, "class" => "ui-btn-right", :rel => "external" %>
+<% else %>
+  <fieldset class="ui-grid-a">
+    <div class="ui-block-a"><%= link_to '登录', new_session_path(:user),      "data-role" => "button" %></div>
+    <div class="ui-block-b"><%= link_to '注册', new_registration_path(:user), "data-role" => "button" %></div>
+  </fieldset>
+<% end %>
+</div>

@@ -1,0 +1,27 @@
+<h2 class="pagetitle">登录</h2>
+<div class="form">
+	
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  <div class="field">
+	<%= f.label :email, t("user.email") %>
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="field">
+	<%= f.label :password, t("user.password") %>
+    <%= f.password_field :password %>
+  </div>
+
+  <div class="field">
+    <%= f.check_box :remember_me  %>
+    <%= f.label :remember_me, t("user.remember_me"), :class => "inner" %>
+  </div>
+
+  <div class="field">
+	<%= f.submit "登 录", :class => "button submit" %>
+  </div>
+<% end %>
+
+<%= render :partial => "devise/shared/links" %>
+
+</div>

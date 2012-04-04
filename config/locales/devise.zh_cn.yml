@@ -1,0 +1,40 @@
+# encoding: utf8
+zh_cn:
+  errors:
+    messages:
+      not_found: "没有找到"
+      already_confirmed: "已被确认过了"
+      not_locked: "被锁定了"
+
+  devise:
+    failure:
+      unauthenticated: '您需要先注册、登入后才能继续。'
+      unconfirmed: '您的帐号需需要经过确认后，才能继续。'
+      locked: '您的帐号已被锁定。'
+      invalid: 'Email 或密码是无效的。'
+      invalid_token: '无效的认证代码。'
+      timeout: '您的登入时效过期，请重新登入，才能继续。'
+      inactive: '您的帐号尚未被启用。'
+    sessions:
+      signed_in: '成功登入了。'
+      signed_out: '成功登出了。'
+    passwords:
+      send_instructions: '您将在几分钟后收到一封电子邮件，内有重新设定密码的步骤说明。'
+      updated: '您的密码已被修改，而您现在已重新登入。'
+    confirmations:
+      send_instructions: '您将在几分钟后收到一封电子邮件，内有确认帐号的步骤说明。'
+      confirmed: '您的帐号已经过确认，现在您已成功登入。'
+    registrations:
+      signed_up: '您已经成功的登录，确认信件已送至您的 Email 信箱。'
+      updated: '您已经成功的更新帐号资讯。'
+      destroyed: '再会！您的帐号已被取消。有缘再会。'
+    unlocks:
+      send_instructions: '您将在几分钟后收到一封电子邮件，内有将帐号解除锁定的步骤说明。'
+      unlocked: '您的帐号已被解锁，现在您已成功登入。'
+    mailer:
+      confirmation_instructions:
+        subject: '确认步骤'
+      reset_password_instructions:
+        subject: '重设密码步骤'
+      unlock_instructions:
+        subject: '解锁步骤'

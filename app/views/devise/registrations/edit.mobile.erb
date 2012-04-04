@@ -1,0 +1,41 @@
+<div data-role="page" class="devise-registration-edit">
+  <header data-role="header">
+    <h1>Edit <%= resource_name.to_s.humanize %></h1>
+  </header>
+
+  <div data-role="content">
+    <%= render :partial => "devise/shared/flash", :object => flash %>
+
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+      <%= devise_error_messages! %>
+    
+      <p>
+        <%= f.label :email , t("user.email") %><br/>
+        <%= f.text_field :email %>
+      </p>
+    
+      <p>
+        <%= f.label :password , t("user.password") %> <br/>
+        <%= f.password_field :password %><i>(如果不想修改请留空)</i>
+      </p>
+    
+      <p>
+        <%= f.label :password_confirmation , t("user.password_confirmation") %><br/>
+        <%= f.password_field :password_confirmation %>
+      </p>
+    
+      <p>
+        <%= f.label :current_password ,t("user.current_password") %> <i>(需要当前密码进行修改确认)</i><br/>
+        <%= f.password_field :current_password %>
+      </p>
+    
+      <p>
+    	<%= f.submit "保存" %>
+      </p>
+    <% end %>
+
+    <h3>中止帐号</h3>
+    
+    <p>要取消吗? <%= link_to "注销帐号", registration_path(resource_name), :confirm => "请确认?", :method => :delete %>.</p>
+  </div>
+</div>

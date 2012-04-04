@@ -1,0 +1,18 @@
+<h2 class="pagetitle">忘记密码</h2>
+<div class="form">
+	<%= form_for(resource, :as => resource_name, :url => password_path(resource_name)) do |f| %>
+	  <%= devise_error_messages! %>
+	
+	  <div class="field">
+	  	<%= f.label :email, t("user.email") %>
+	  	<%= f.text_field :email, :class => "text" %>
+	  </div>
+	  <div class="field">
+		<%= f.submit "发送密码重置信息", :class => "button" %>
+	  </div>
+	
+	  <p></p>
+	<% end %>
+	
+	<%= render :partial => "devise/shared/links" %>
+</div>

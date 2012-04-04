@@ -1,0 +1,88 @@
+# encoding: utf-8
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>蜗牛工作</title>
+  <link rel="shortcut icon" href="/favicon.ico">
+  <%= stylesheet_link_tag "application" %>
+  <%= stylesheet_link_tag "colorbox/colorbox" %>
+  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" %>
+  <%= javascript_include_tag "rails", "jquery.formLabels1.0.js", "jquery.colorbox-min" %>
+
+<script type="text/javascript">
+	$(function(){
+		$.fn.formLabels();
+		$("#search-form").submit(function(){
+			var formVal = $("form").serialize();
+			parent.$("#default div.results").html(formVal);
+		})
+	});
+</script>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+<div id="wrapper">
+    <div id="header">
+        <h1><a href="/">RubyJobs</a></h1>
+        <div class="right">
+            <p class="member">
+				<% if user_signed_in? %>
+					欢迎, <%= current_user.email %> 
+          <% if current_user.is_admin? %>
+   					<%= link_to t(:list_my_posting), jobs_path(current_user, :user_id => current_user) %> | 
+          <% end %>
+					<%= link_to t(:settings), edit_user_registration_path %> |
+					<%= link_to t(:logout), destroy_user_session_path %>
+        <% else %>
+					<%= link_to t(:signup), new_registration_path(:user) %> | 
+					<%= link_to t(:login), new_session_path(:user) %>
+				<% end %>
+            </p>
+			<%= form_tag jobs_path, :id => "search-form", :class => "search", :method => :get do %>
+				<%= text_field_tag :keyword, "", :title => "查找", :class => "text" %>
+				<%= submit_tag t(:search), :disable_with => t(:submiting), :class => "search-submit" %>
+			<% end %>
+        </div>
+    </div>
+    <div id="container">
+        <div id="container-inner">
+		<% if flash[:notice] %>
+			<div class="message notice"><%= flash[:notice] %></div>
+		<% end %>
+		<% if flash[:warning] %>
+			<div class="message alert"><%= flash[:alert] %></div>
+		<% end %>
+		<%= yield %>
+        </div>
+    </div>
+    <div id="footer">
+        <ul class="menu clearfix">
+            <li><%= link_to t(:faq), about_path %></li>
+            <li><a href="mailto:nbdu2012@gmail.com">联系我们</a></li>
+        </ul>
+        <p class="language">Choose your language: 
+			<%= link_to "English", :controller => controller.controller_name, 
+					         :action => controller.action_name, :locale => "en" %>
+			<%= link_to "中文", :controller => controller.controller_name, 
+					         :action => controller.action_name, :locale => "zh_cn" %>
+	    </p>
+        <address>蜗牛工作 由在校大学生志愿团队创建.</address>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-145330-14']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+# encoding: utf8
+zh_cn:
+  submit: 送出
+  submiting: 送出中...
+  search: 搜寻
+  preview: 预览
+  
+  logout: 登出
+  signup: 注册
+  login: 登入
+  settings: 个人设定
+  
+  edit: 编辑
+  delete: 删除
+  open: 公开这份工作
+  close: 关闭这份工作
+  are_you_sure: 你确定吗?
+      
+  post_a_new_job: 发布新工作
+  list_my_posting: 列出我发布的工作
+    
+  faq: 常见问题
+  rss_feed: Subscribe to the RSS feed
+  twitter: follow @RubyTaiwan on Twitter
+  
+  job:
+    posted: 发布日期
+    title: 工作名称
+    company_name: 公司名称
+    type: 工作类型
+    occupation: 工作分类
+    location: 工作地点
+    description: 工作描述
+    apply_information: 如何应聘
+    deadline: 有效期限
+    deadline_forever: 永久有效
+  user:
+    email: 邮箱
+    password: 密码
+    password_confirmation: 确认密码
+    remember_me: 记住我
+    current_password: 当前密码
